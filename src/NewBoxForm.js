@@ -9,6 +9,13 @@ export default class NewBoxForm extends Component {
       color: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.createBox(this.state);
+    this.setState({ height: "", width: "", color: "" });
   }
 
   handleChange(event) {
@@ -18,7 +25,7 @@ export default class NewBoxForm extends Component {
   }
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="height">Height </label>
           <input
@@ -49,6 +56,7 @@ export default class NewBoxForm extends Component {
             id="color"
           />
         </div>
+        <button>Add New Box</button>
       </form>
     );
   }
