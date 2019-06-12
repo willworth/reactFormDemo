@@ -11,7 +11,7 @@ class Box extends Component {
             backgroundColor: this.props.color
           }}
         />
-        <button>X</button>
+        <button onClick={this.props.removeBox}>X</button>
       </div>
     );
   }
